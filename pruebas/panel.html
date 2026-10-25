@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Prueba del panel · Examen virtual</title><link rel="stylesheet" href="../css/estilo.css"></head>
+<body class="panel">
+<header class="cab"><div class="marca">Examen <span>virtual</span> · panel del profesor</div><span class="chip" id="cabEstado" hidden></span></header>
+<main id="panel"></main><footer class="pie" id="pie"></footer><div class="toast" id="toast" role="status" hidden></div>
+<script type="module">
+  window.addEventListener('unhandledrejection', e => navigator.sendBeacon('/resultado', JSON.stringify({ fin: true, lineas: ['ERROR ' + (e.reason && e.reason.stack || e.reason)], pasan: 0, total: 1 })));
+  import('./panel.js').catch(e => navigator.sendBeacon('/resultado', JSON.stringify({ fin: true, lineas: ['ERROR al cargar: ' + (e.stack || e)], pasan: 0, total: 1 })));
+</script>
+</body></html>

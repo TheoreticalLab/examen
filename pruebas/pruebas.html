@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Pruebas · Examen virtual</title></head>
+<body><p>Ejecutando pruebas…</p>
+<script type="module">
+  window.addEventListener('error', e => fetch('/resultado', { method: 'POST', body: JSON.stringify({ fin: true, lineas: ['ERROR ' + e.message + ' ' + e.filename + ':' + e.lineno], pasan: 0, total: 1 }) }));
+  window.addEventListener('unhandledrejection', e => fetch('/resultado', { method: 'POST', body: JSON.stringify({ fin: true, lineas: ['ERROR ' + (e.reason && e.reason.stack || e.reason)], pasan: 0, total: 1 }) }));
+  import('./pruebas.js').catch(e => fetch('/resultado', { method: 'POST', body: JSON.stringify({ fin: true, lineas: ['ERROR al cargar: ' + (e.stack || e)], pasan: 0, total: 1 }) }));
+</script>
+</body></html>

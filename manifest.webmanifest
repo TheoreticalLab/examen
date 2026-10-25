@@ -1,0 +1,11 @@
+{
+  "name": "Examen virtual · Física General",
+  "short_name": "Examen",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "background_color": "#f4f5f7",
+  "theme_color": "#2457c5",
+  "lang": "es",
+  "icons": [{ "src": "icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

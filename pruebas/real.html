@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Prueba en modo real · Examen virtual</title><link rel="stylesheet" href="../css/estilo.css"></head>
+<body>
+<header class="cab"><div class="marca">Examen <span>virtual</span></div><span class="chip" id="cabAlumno" hidden></span><span class="reloj" id="cabReloj" hidden></span></header>
+<div class="banda" id="bandaPantalla" hidden><button type="button" class="btn chico" id="bPantalla">Activar</button></div>
+<main id="app"></main><footer class="pie" id="pie"></footer>
+<div class="capa" id="capa" hidden></div><div class="toast" id="toast" role="status" hidden></div>
+<script type="module">
+  window.addEventListener('unhandledrejection', e => navigator.sendBeacon('/resultado', JSON.stringify({ fin: true, lineas: ['ERROR ' + (e.reason && e.reason.stack || e.reason)], pasan: 0, total: 1 })));
+  import('./real.js').catch(e => navigator.sendBeacon('/resultado', JSON.stringify({ fin: true, lineas: ['ERROR al cargar: ' + (e.stack || e)], pasan: 0, total: 1 })));
+</script>
+</body></html>
